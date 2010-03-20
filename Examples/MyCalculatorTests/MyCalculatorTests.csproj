@@ -52,6 +52,10 @@
       <Project>{641EA1D3-2E98-4C71-8BDB-0C978F0926D6}</Project>
       <Name>linxUnit</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyCalculator\MyCalculator.csproj">
+      <Project>{E95B99C8-AA39-4FA4-9849-D4E3EE0EE630}</Project>
+      <Name>MyCalculator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
