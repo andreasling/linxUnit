@@ -16,6 +16,8 @@ namespace linxUnitTests
             TestSuite suite = new TestSuite();
             suite.add(TestCase.CreateSuite(typeof(TestCaseTest)));
             suite.add(TestCase.CreateSuite(typeof(AssertTest)));
+            suite.add(TestCase.CreateSuite(typeof(TestSuiteTests)));
+            suite.add(TestCase.CreateSuite(typeof(TestLoaderTest)));
             TestResult result = new TestResult();
             suite.run(result);
             Console.WriteLine(result.summary());
