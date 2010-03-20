@@ -7,6 +7,7 @@ namespace linxUnit
     public class TestSuite : ITest
     {
         private List<ITest> tests;
+        public ICollection<ITest> Tests { get { return tests; } }
 
         public TestSuite()
         {
