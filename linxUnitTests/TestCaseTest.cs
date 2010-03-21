@@ -43,7 +43,7 @@ namespace linxUnitTests
         public void testFailedResultFormatting()
         {
             result.testStarted();
-            result.testFailed();
+            result.testFailed("test", null);
             Assert.AreEqual("1 run, 1 failed", result.summary());
         }
 
@@ -68,6 +68,17 @@ namespace linxUnitTests
             SetUpTearDownFailedTest test = new SetUpTearDownFailedTest("testMethod");
             test.run(result);
             Assert.AreEqual("setUp tearDown ", test.log);
+        }
+
+        public void testResultDetails()
+        {
+            TestSuite suite = TestCase.CreateSuite(typeof(WasRun));
+            
+            suite.run(result);
+
+            Assert.AreEqual(1, result.failures.Count);
+            Assert.AreEqual("testBrokenMethod failed", result.failures[0].message);
+            Assert.AreEqual("Exception of type 'System.Exception' was thrown.", result.failures[0].exception.Message);
         }
     }
 }

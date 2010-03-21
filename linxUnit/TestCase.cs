@@ -35,9 +35,9 @@ namespace linxUnit
                 MethodInfo methodInfo = type.GetMethod(name, BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public);
                 methodInfo.Invoke(this, null);
             }
-            catch (Exception/* exception*/)
+            catch (Exception exception)
             {
-                result.testFailed();
+                result.testFailed(name, exception.InnerException);
             }
             finally
             {
