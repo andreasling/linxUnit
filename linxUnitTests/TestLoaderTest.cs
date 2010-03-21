@@ -17,13 +17,13 @@ namespace linxUnitTests
             // TODO: Arrange
             TestSuite suite = null;
             TestLoader loader = new TestLoader();
-            string directory = @"D:\git\linxUnit\linxUnitTests\bin\Debug\";
+            string directory = @"D:\git\linxUnit\Examples\MyCalculatorTests\bin\Debug\";
 
             // TODO: Act
             suite = loader.LoadFromDirectory(directory);
 
             // TODO: Assert
-            Assert.IsTrue(suite.Tests.Count > 0);
+            Assert.AreEqual(1, suite.Tests.Count);
         }
 
         public void testLoadFromFile()
@@ -31,13 +31,13 @@ namespace linxUnitTests
             // TODO: Arrange
             TestSuite suite = null;
             TestLoader loader = new TestLoader();
-            string file = @"D:\git\linxUnit\linxUnitTests\bin\Debug\linxUnitTests.exe";
+            string file = @"D:\git\linxUnit\Examples\MyCalculatorTests\bin\Debug\MyCalculatorTests.exe";
 
             // TODO: Act
             suite = loader.LoadFromFile(file);
 
             // TODO: Assert
-            Assert.IsTrue(suite.Tests.Count > 0);
+            Assert.AreEqual(1, suite.Tests.Count);
         }
     }
 }

@@ -14,14 +14,56 @@ namespace linxUnit
         {
             Debug.WriteLine("LoadFromDirectory: " + directory);
 
-            TestSuite suite = new TestSuite();
+            SetupAssemblyResolve(directory);
 
-            LoadTests(suite, directory);
+            var testTypes = LoadAssembliesAndGetTestTypes(directory);
+
+            var suite = CreateTestSuite(testTypes);
 
             return suite;
         }
 
-        private static void LoadTests(TestSuite suite, string directory)
+        public TestSuite LoadFromFile(string file)
+        {
+            var fileInfo = new FileInfo(file);
+
+            var testTypes = LoadAssemblyAndGetTestTypes(fileInfo);
+
+            var suite = CreateTestSuite(testTypes);
+
+            return suite;
+        }
+
+        private static IEnumerable<Type> LoadAssembliesAndGetTestTypes(string directory)
+        {
+            var assemblyFiles = GetAssemblyFiles(directory);
+
+            var assemblies = LoadAssemblies(assemblyFiles);
+
+            var testTypes = GetTestTypes(assemblies);
+
+            return testTypes;
+        }
+
+        private static IEnumerable<Type> LoadAssemblyAndGetTestTypes(FileInfo fileInfo)
+        {
+            var assembly = TryLoadAssembly(fileInfo.FullName);
+
+            var testTypes = GetTestTypes(assembly);
+
+            return testTypes;
+        }
+
+        private static TestSuite CreateTestSuite(IEnumerable<Type> testTypes)
+        {
+            var suites = CreateSuites(testTypes);
+
+            var suite = CreateParentSuite(suites);
+
+            return suite;
+        }
+
+        private static void SetupAssemblyResolve(string directory)
         {
             AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler((sender, eventArgs) =>
             {
@@ -37,7 +79,7 @@ namespace linxUnit
                 files.Add(Path.ChangeExtension(filePathWithoutExtrension, "exe"));
 
                 // Add other assembly files names in directory
-                files.AddRange( 
+                files.AddRange(
                     from file in Directory.GetFiles(directory)
                     where IsAssemblyFile(file) && !files.Contains(file)
                     select file);
@@ -78,19 +120,26 @@ namespace linxUnit
 
                 return null;
             });
+        }
 
-            var assemblyFiles = GetAssemblyFiles(directory);
+        private static IEnumerable<TestSuite> CreateSuites(IEnumerable<Type> testTypes)
+        {
+            var suites =
+                from type in testTypes
+                select TestCase.CreateSuite(type);
+            return suites;
+        }
 
-            var assemblies = LoadAssemblies(assemblyFiles);
+        private static TestSuite CreateParentSuite(IEnumerable<TestSuite> childSuites)
+        {
+            var suite = new TestSuite();
 
-            var testTypes = GetTestTypes(assemblies);
-
-            foreach (var type in testTypes)
+            foreach (var childSuite in childSuites)
             {
-                Debug.WriteLine(string.Format("Found test: {0}", type.FullName));
-
-                suite.add(TestCase.CreateSuite(type));
+                suite.add(childSuite);
             }
+
+            return suite;
         }
 
         private static IEnumerable<Type> GetTestTypes(IEnumerable<Assembly> assemblies)
@@ -99,8 +148,15 @@ namespace linxUnit
                 from assembly in assemblies
                 select new { TestTypes = GetTestTypes(assembly) };
 
-            return assembliesTestTypes.SelectMany(
+            var testTypes = assembliesTestTypes.SelectMany(
                 assemblyTestTypes => assemblyTestTypes.TestTypes);
+#if debug
+            foreach (var type in testTypes)
+            {
+                Debug.WriteLine(string.Format("Found test: {0}", type.FullName));
+            }
+#endif
+            return testTypes;
         }
 
         private static IEnumerable<Assembly> LoadAssemblies(IEnumerable<string> assemblyFiles)
@@ -119,6 +175,7 @@ namespace linxUnit
                 from type in types
                 where iTestType.IsAssignableFrom(type)
                 select type;
+
             return testTypes;
         }
 
