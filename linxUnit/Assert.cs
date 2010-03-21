@@ -15,7 +15,7 @@ namespace linxUnit
             }
         }
 
-        public static void AreEqual(object expected, object actual)
+        public static void AreEqual<T>(T expected, T actual)
         {
             if (!object.Equals(expected, actual))
             {
