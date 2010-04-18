@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C# Express 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linxUnit", "linxUnit\linxUnit.csproj", "{641EA1D3-2E98-4C71-8BDB-0C978F0926D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linxUnitTests", "linxUnitTests\linxUnitTests.csproj", "{829A0455-434C-49E2-8979-AD2B4613D9D9}"
