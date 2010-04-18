@@ -69,6 +69,7 @@
     <Compile Include="TestCase.cs" />
     <Compile Include="TestLoader.cs" />
     <Compile Include="TestResult.cs" />
+    <Compile Include="TestResultDetails.cs" />
     <Compile Include="TestSuite.cs" />
   </ItemGroup>
   <ItemGroup>
