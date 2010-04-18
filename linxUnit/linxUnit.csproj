@@ -45,7 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assert.cs" />
-    <Compile Include="AssertionErrorException.cs" />
+    <Compile Include="AssertFailedException.cs" />
+    <Compile Include="AssertInconclusiveException.cs" />
     <Compile Include="ITest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

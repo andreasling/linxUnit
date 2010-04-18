@@ -23,7 +23,7 @@ namespace linxUnit
                 Console.ForegroundColor = color;
 
                 Console.Write(detail.message);
-                if (!detail.success)
+                if (!detail.success && detail.failure != null)
                 {
                     Console.Write(": " + detail.failure.exception.Message);
                 }

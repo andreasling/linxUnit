@@ -23,7 +23,6 @@ namespace linxUnit
 
     public class TestFailure
     {
-        //public string message { get; internal set; }
         public Exception exception { get; internal set; }
     }
 }
