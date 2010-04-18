@@ -30,7 +30,7 @@ namespace linxUnit
             {
                 if (expected is string || actual is string)
                 {
-                    throw new AssertionErrorException(string.Format("Actual value [{0}] did not equal expected value [{1}].", actual, expected));
+                    ThrowAssertionNotEqualError(expected, actual);
                 }
                 if (expected is IEnumerable && actual is IEnumerable && expected.GetType().Equals(actual.GetType()) )
                 {
@@ -68,38 +68,43 @@ namespace linxUnit
 
                     if (!areEqual)
                     {
-                        StringBuilder
-                            formattedActual = new StringBuilder(),
-                            formattedExpected = new StringBuilder();
-
-                        foreach (var item in actuals)
-                        {
-                            formattedActual.AppendFormat("{0}, ", item);
-                        }
-                        formattedActual.Remove(formattedActual.Length - 2, 2);
-
-                        foreach (var item in expecteds)
-                        {
-                            formattedExpected.AppendFormat("{0}, ", item);
-                        }
-                        formattedExpected.Remove(formattedExpected.Length - 2, 2);
-
-                        throw new AssertionErrorException(string.Format("Actual value [{{{0}}}] did not equal expected value [{{{1}}}].", formattedActual, formattedExpected));
+                        ThrowAssertionNotEqualError(FormatEnumerableValue(expecteds), FormatEnumerableValue(actuals));
                     }
                 }
                 else
                 {
-                    //string formattedActual = actual.ToString();
-                    //string formattedExpected = expected.ToString();
-
-                    //if (T is IEnumerable)
-                    //{
-                    //    formattedActual = 
-                    //}
-
-                    throw new AssertionErrorException(string.Format("Actual value [{0}] did not equal expected value [{1}].", actual, expected));
+                    ThrowAssertionNotEqualError(expected, actual);
                 }
             }
+        }
+
+        private static void ThrowAssertionNotEqualError<T>(T expected, T actual)
+        {
+            string message = string.Format(
+                "Actual value [{0}] did not equal expected value [{1}].",
+                actual,
+                expected);
+
+            throw new AssertionErrorException(message);
+        }
+
+        private static string FormatEnumerableValue(IEnumerable values)
+        {
+            StringBuilder formattedValue = new StringBuilder();
+
+            foreach (var item in values)
+            {
+                formattedValue.AppendFormat("{0}, ", item);
+            }
+            if (formattedValue.Length > 0)
+            {
+                formattedValue.Remove(formattedValue.Length - 2, 2);
+            }
+
+            formattedValue.Insert(0, "{");
+            formattedValue.Append("}");
+
+            return formattedValue.ToString();
         }
 
         public static void IsNull<T>(T actual) where T : class

@@ -148,6 +148,19 @@ namespace linxUnitTests
             }
         }
 
+        public void testAreEqualArrayZeroWidthBugFailure()
+        {
+            try
+            {
+                Assert.AreEqual(new byte[] { }, new byte[] { 0 });
+                throw new Exception();
+            }
+            catch (AssertionErrorException exception)
+            {
+                Assert.AreEqual("Actual value [{0}] did not equal expected value [{}].", exception.Message);
+            }
+        }
+
         public void testIsNullSuccess()
         {
             object o = null;
