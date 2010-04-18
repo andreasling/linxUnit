@@ -20,11 +20,38 @@ namespace linxUnitTests
             suite.add(TestCase.CreateSuite(typeof(TestLoaderTest)));
             TestResult result = new TestResult();
             suite.run(result);
-            Console.WriteLine(result.summary());
 
             stopwatch.Stop();
 
+            foreach (var detail in result.details)
+            {
+                var oldColor = Console.ForegroundColor;
+
+                var color = 
+                    detail.inconclusive ? 
+                        ConsoleColor.DarkYellow :
+                    detail.success ? 
+                        ConsoleColor.DarkGreen :
+                        ConsoleColor.DarkRed;
+
+                Console.ForegroundColor = color;
+
+                Console.Write(detail.message);
+                if (!detail.success)
+                {
+                    Console.Write(": " + detail.failure.exception.Message);
+                }
+                Console.WriteLine();
+
+                Console.ForegroundColor = oldColor;
+            }
+            
+            Console.WriteLine();
+
+            Console.WriteLine(result.summary());
+
             Console.WriteLine("Time elapsed: " + stopwatch.Elapsed);
+
         }
     }
 }

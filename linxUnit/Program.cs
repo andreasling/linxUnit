@@ -37,9 +37,14 @@ namespace linxUnit
 
                 suite.run(result);
 
-                foreach (var failure in result.failures)
+                foreach (var detail in result.details)
                 {
-                    Console.WriteLine(failure.message + ": " + failure.exception.Message);
+                    if (!detail.success)
+                    {
+                        var failure = detail.failure;
+
+                        Console.WriteLine(detail.message + ": " + failure.exception.Message);
+                    }
                 }
                 Console.WriteLine(result.summary());
             }

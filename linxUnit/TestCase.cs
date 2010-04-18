@@ -19,7 +19,7 @@ namespace linxUnit
 
         public void run(TestResult result)
         {
-            result.testStarted();
+            result.testStarted(name);
             try
             {
                 try
@@ -34,10 +34,12 @@ namespace linxUnit
                 Type type = this.GetType();
                 MethodInfo methodInfo = type.GetMethod(name, BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public);
                 methodInfo.Invoke(this, null);
+
+                result.testSucceeded();
             }
             catch (Exception exception)
             {
-                result.testFailed(name, exception.InnerException);
+                result.testFailed(exception.InnerException);
             }
             finally
             {

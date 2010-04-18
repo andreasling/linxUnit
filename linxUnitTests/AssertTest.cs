@@ -24,8 +24,27 @@ namespace linxUnitTests
                 Assert.IsTrue(false);
                 throw new Exception();
             }
-            catch (AssertionErrorException)
+            catch (AssertionErrorException exception)
             {
+                Assert.AreEqual("Expression was not true.", exception.Message);
+            }
+        }
+
+        public void testIsFalseSuccess()
+        {
+            Assert.IsFalse(false);
+        }
+
+        public void testIsFalseFailure()
+        {
+            try
+            {
+                Assert.IsFalse(true);
+                throw new Exception();
+            }
+            catch (AssertionErrorException exception)
+            {
+                Assert.AreEqual("Expression was not false.", exception.Message);
             }
         }
 
@@ -95,6 +114,27 @@ namespace linxUnitTests
             //catch (AssertionErrorException)
             //{
             //}
+        }
+
+        public void testIsNullSuccess()
+        {
+            object o = null;
+
+            Assert.IsNull(o);
+        }
+
+        public void testIsNullFailure()
+        {
+            object o = new object();
+
+            try
+            {
+                Assert.IsNull(o);
+                throw new Exception();
+            }
+            catch (AssertionErrorException)
+            {
+            }
         }
     }
 
