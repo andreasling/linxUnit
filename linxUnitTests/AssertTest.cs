@@ -58,35 +58,47 @@ namespace linxUnitTests
             Assert.AreEqual(new object[] { 1, "beta", true }, new object[] { 1, "beta", true });
         }
 
-        public void testAreEqualFailure()
+        public void testAreEqualBoolFailureBool()
         {
             try
             {
                 Assert.AreEqual(true, false);
                 throw new Exception();
             }
-            catch (AssertionErrorException)
+            catch (AssertionErrorException exception)
             {
+                Assert.AreEqual("Actual value [False] did not equal expected value [True].", exception.Message);
             }
+        }
 
+        public void testAreEqualIntFailure()
+        {
             try
             {
                 Assert.AreEqual(0, 1);
                 throw new Exception();
             }
-            catch (AssertionErrorException)
+            catch (AssertionErrorException exception)
             {
+                Assert.AreEqual("Actual value [1] did not equal expected value [0].", exception.Message);
             }
+        }
 
+        public void testAreEqualStringFailure()
+        {
             try
             {
                 Assert.AreEqual("test", "fail");
                 throw new Exception();
             }
-            catch (AssertionErrorException)
+            catch (AssertionErrorException exception)
             {
+                Assert.AreEqual("Actual value [fail] did not equal expected value [test].", exception.Message);
             }
+        }
 
+        public void testAreEqualArrayElementFailure()
+        {
             try
             {
                 Assert.AreEqual(new byte[] { 0, 1, 2 }, new byte[] { 0, 2, 2 });
@@ -95,6 +107,10 @@ namespace linxUnitTests
             catch (AssertionErrorException)
             {
             }
+        }
+
+        public void testAreEqualArrayLengthFailure()
+        {
 
             try
             {
@@ -104,16 +120,32 @@ namespace linxUnitTests
             catch (AssertionErrorException)
             {
             }
+        }
 
-            // TODO: should array type matter?
-            //try
-            //{
-            //    Assert.AreEqual(new string[] { "alfa", "beta", "gamma" }, new object[] { "alfa", "beta", "gamma" });
-            //    throw new Exception();
-            //}
-            //catch (AssertionErrorException)
-            //{
-            //}
+        // TODO: should array type matter?
+        public void testAreEqualArrayTypeFailure()
+        {
+            try
+            {
+                Assert.AreEqual(new string[] { "alfa", "beta", "gamma" }, new object[] { "alfa", "beta", "gamma" });
+                throw new Exception();
+            }
+            catch (AssertionErrorException)
+            {
+            }
+        }
+
+        public void testAreEqualArrayFormattingFailure()
+        {
+            try
+            {
+                Assert.AreEqual(new byte[] { 0, 1, 2, 3 }, new byte[] { 0, 2, 2 });
+                throw new Exception();
+            }
+            catch (AssertionErrorException exception)
+            {
+                Assert.AreEqual("Actual value [{0, 2, 2}] did not equal expected value [{0, 1, 2, 3}].", exception.Message);
+            }
         }
 
         public void testIsNullSuccess()
