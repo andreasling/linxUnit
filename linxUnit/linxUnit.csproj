@@ -49,6 +49,8 @@
     <Compile Include="ITest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultsHelper.cs" />
+    <Compile Include="RunHelper.cs" />
     <Compile Include="TestCase.cs" />
     <Compile Include="TestLoader.cs" />
     <Compile Include="TestResult.cs" />
