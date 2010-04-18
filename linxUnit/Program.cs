@@ -16,37 +16,24 @@ namespace linxUnit
 
             if (args.Length > 0)
             {
-                var suite = new TestSuite();
-                var loader = new TestLoader();
-
-                foreach (var arg in args)
+                RunHelper.StartTimedTestRun(suite =>
                 {
-                    Debug.WriteLine(arg);
+                    var loader = new TestLoader();
 
-                    if (Directory.Exists(arg))
+                    foreach (var arg in args)
                     {
-                        suite.add(loader.LoadFromDirectory(arg));
-                    } 
-                    else if (File.Exists(arg))
-                    {
-                        suite.add(loader.LoadFromFile(arg));
+                        Debug.WriteLine(arg);
+
+                        if (Directory.Exists(arg))
+                        {
+                            suite.add(loader.LoadFromDirectory(arg));
+                        } 
+                        else if (File.Exists(arg))
+                        {
+                            suite.add(loader.LoadFromFile(arg));
+                        }
                     }
-                }
-
-                TestResult result = new TestResult();
-
-                suite.run(result);
-
-                foreach (var detail in result.details)
-                {
-                    if (!detail.success)
-                    {
-                        var failure = detail.failure;
-
-                        Console.WriteLine(detail.message + ": " + failure.exception.Message);
-                    }
-                }
-                Console.WriteLine(result.summary());
+                });
             }
             else
             {
