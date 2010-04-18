@@ -24,7 +24,7 @@ namespace linxUnitTests
                 Assert.IsTrue(false);
                 throw new Exception();
             }
-            catch (AssertionErrorException exception)
+            catch (AssertFailedException exception)
             {
                 Assert.AreEqual("Expression was not true.", exception.Message);
             }
@@ -42,7 +42,7 @@ namespace linxUnitTests
                 Assert.IsFalse(true);
                 throw new Exception();
             }
-            catch (AssertionErrorException exception)
+            catch (AssertFailedException exception)
             {
                 Assert.AreEqual("Expression was not false.", exception.Message);
             }
@@ -65,7 +65,7 @@ namespace linxUnitTests
                 Assert.AreEqual(true, false);
                 throw new Exception();
             }
-            catch (AssertionErrorException exception)
+            catch (AssertFailedException exception)
             {
                 Assert.AreEqual("Actual value [False] did not equal expected value [True].", exception.Message);
             }
@@ -78,7 +78,7 @@ namespace linxUnitTests
                 Assert.AreEqual(0, 1);
                 throw new Exception();
             }
-            catch (AssertionErrorException exception)
+            catch (AssertFailedException exception)
             {
                 Assert.AreEqual("Actual value [1] did not equal expected value [0].", exception.Message);
             }
@@ -91,7 +91,7 @@ namespace linxUnitTests
                 Assert.AreEqual("test", "fail");
                 throw new Exception();
             }
-            catch (AssertionErrorException exception)
+            catch (AssertFailedException exception)
             {
                 Assert.AreEqual("Actual value [fail] did not equal expected value [test].", exception.Message);
             }
@@ -104,7 +104,7 @@ namespace linxUnitTests
                 Assert.AreEqual(new byte[] { 0, 1, 2 }, new byte[] { 0, 2, 2 });
                 throw new Exception();
             }
-            catch (AssertionErrorException)
+            catch (AssertFailedException)
             {
             }
         }
@@ -117,7 +117,7 @@ namespace linxUnitTests
                 Assert.AreEqual(new byte[] { 0, 1, 2 }, new byte[] { 0, 1, 2, 3 });
                 throw new Exception();
             }
-            catch (AssertionErrorException)
+            catch (AssertFailedException)
             {
             }
         }
@@ -130,7 +130,7 @@ namespace linxUnitTests
                 Assert.AreEqual(new string[] { "alfa", "beta", "gamma" }, new object[] { "alfa", "beta", "gamma" });
                 throw new Exception();
             }
-            catch (AssertionErrorException)
+            catch (AssertFailedException)
             {
             }
         }
@@ -142,7 +142,7 @@ namespace linxUnitTests
                 Assert.AreEqual(new byte[] { 0, 1, 2, 3 }, new byte[] { 0, 2, 2 });
                 throw new Exception();
             }
-            catch (AssertionErrorException exception)
+            catch (AssertFailedException exception)
             {
                 Assert.AreEqual("Actual value [{0, 2, 2}] did not equal expected value [{0, 1, 2, 3}].", exception.Message);
             }
@@ -155,7 +155,7 @@ namespace linxUnitTests
                 Assert.AreEqual(new byte[] { }, new byte[] { 0 });
                 throw new Exception();
             }
-            catch (AssertionErrorException exception)
+            catch (AssertFailedException exception)
             {
                 Assert.AreEqual("Actual value [{0}] did not equal expected value [{}].", exception.Message);
             }
@@ -177,8 +177,55 @@ namespace linxUnitTests
                 Assert.IsNull(o);
                 throw new Exception();
             }
-            catch (AssertionErrorException)
+            catch (AssertFailedException exception)
             {
+                Assert.AreEqual("Expression was not null.", exception.Message);
+            }
+        }
+
+        public void testIsNotNullSuccess()
+        {
+            object o = new object();
+
+            Assert.IsNotNull(o);
+        }
+
+        public void testIsNotNullFailure()
+        {
+            object o = null;
+
+            try
+            {
+                Assert.IsNotNull(o);
+                throw new Exception();
+            }
+            catch (AssertFailedException exception)
+            {
+                Assert.AreEqual("Expression was null.", exception.Message);
+            }
+        }
+
+        public void testInconclusive()
+        {
+            try
+            {
+                Assert.Inconclusive();
+            }
+            catch (AssertInconclusiveException exception)
+            {
+                Assert.AreEqual("Test was inconclusive.", exception.Message);
+            }
+        }
+
+        public void testAssertFail()
+        {
+            try
+            {
+                Assert.Fail();
+            }
+            catch (AssertFailedException exception)
+            {
+                Assert.AreEqual("Test failed.", exception.Message);
             }
         }
     }

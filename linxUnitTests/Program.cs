@@ -15,6 +15,7 @@ namespace linxUnitTests
                 suite.add(TestCase.CreateSuite(typeof(AssertTest)));
                 suite.add(TestCase.CreateSuite(typeof(TestSuiteTests)));
                 suite.add(TestCase.CreateSuite(typeof(TestLoaderTest)));
+                suite.add(TestCase.CreateSuite(typeof(TestResultTest)));
             });
         }
     }

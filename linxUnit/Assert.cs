@@ -12,7 +12,7 @@ namespace linxUnit
         {
             if (!expression)
             {
-                throw new AssertionErrorException(string.Format("Expression was not true.", expression));
+                throw new AssertFailedException(string.Format("Expression was not true.", expression));
             }
         }
 
@@ -20,7 +20,7 @@ namespace linxUnit
         {
             if (expression)
             {
-                throw new AssertionErrorException(string.Format("Expression was not false.", expression));
+                throw new AssertFailedException(string.Format("Expression was not false.", expression));
             }
         }
 
@@ -85,7 +85,7 @@ namespace linxUnit
                 actual,
                 expected);
 
-            throw new AssertionErrorException(message);
+            throw new AssertFailedException(message);
         }
 
         private static string FormatEnumerableValue(IEnumerable values)
@@ -109,7 +109,28 @@ namespace linxUnit
 
         public static void IsNull<T>(T actual) where T : class
         {
-            Assert.IsTrue(null == actual);
+            if (null != actual)
+            {
+                throw new AssertFailedException("Expression was not null.");
+            }
+        }
+
+        public static void IsNotNull(object o)
+        {
+            if (null == o)
+            {
+                throw new AssertFailedException("Expression was null.");
+            }
+        }
+
+        public static void Inconclusive()
+        {
+            throw new AssertInconclusiveException("Test was inconclusive.");
+        }
+
+        public static void Fail()
+        {
+            throw new AssertFailedException("Test failed.");
         }
     }
 }

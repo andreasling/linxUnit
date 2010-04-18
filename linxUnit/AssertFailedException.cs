@@ -4,14 +4,14 @@ using System.Text;
 
 namespace linxUnit
 {
-    public class AssertionErrorException : Exception
+    public class AssertFailedException : Exception
     {
-        public AssertionErrorException()
+        public AssertFailedException()
             : base()
         {
         }
 
-        public AssertionErrorException(string message)
+        public AssertFailedException(string message)
             : base(message)
         {
         }

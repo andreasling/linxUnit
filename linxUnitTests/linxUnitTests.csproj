@@ -79,7 +79,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ResultDetailsTestTest.cs" />
     <Compile Include="TestLoaderTest.cs" />
+    <Compile Include="TestResultTest.cs" />
     <Compile Include="TestSuiteTests.cs" />
     <Compile Include="TodoList.cs" />
   </ItemGroup>

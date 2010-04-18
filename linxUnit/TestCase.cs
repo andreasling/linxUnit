@@ -39,7 +39,15 @@ namespace linxUnit
             }
             catch (Exception exception)
             {
-                result.testFailed(exception.InnerException);
+                var innerException = exception.InnerException;
+
+                if (innerException is AssertInconclusiveException)
+                {
+                }
+                else
+                {
+                    result.testFailed(innerException);
+                }
             }
             finally
             {
