@@ -17,7 +17,7 @@ namespace linxUnitTests
             // TODO: Arrange
             TestSuite suite = null;
             TestLoader loader = new TestLoader();
-            string directory = @"D:\git\linxUnit\Examples\MyCalculatorTests\bin\Debug\";
+            string directory = System.IO.Path.GetFullPath(@"..\..\..\Examples\MyCalculatorTests\bin\Debug\");
 
             // TODO: Act
             suite = loader.LoadFromDirectory(directory);
@@ -31,7 +31,7 @@ namespace linxUnitTests
             // TODO: Arrange
             TestSuite suite = null;
             TestLoader loader = new TestLoader();
-            string file = @"D:\git\linxUnit\Examples\MyCalculatorTests\bin\Debug\MyCalculatorTests.exe";
+            string file = System.IO.Path.GetFullPath(@"..\..\..\Examples\MyCalculatorTests\bin\Debug\MyCalculatorTests.exe");
 
             // TODO: Act
             suite = loader.LoadFromFile(file);
