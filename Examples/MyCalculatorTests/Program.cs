@@ -9,10 +9,10 @@ namespace MyCalculatorTests
     {
         static void Main(string[] args)
         {
-            TestSuite suite = TestCase.CreateSuite(typeof(MyCalculatorTests));
-            TestResult result = new TestResult();
-            suite.run(result);
-            Console.WriteLine(result.summary());
+            RunHelper.StartTimedTestRun(suite =>
+            {
+                suite.add(new TestLoader().LoadFromDirectory(System.IO.Path.GetFullPath(".")));
+            });
         }
     }
 }
