@@ -14,13 +14,13 @@ namespace linxUnitTests
 
         public void testMethod()
         {
-            // TODO: Arrange
-            TestSuite suite = new TestSuite(); // TestCase.CreateSuite(typeof(TestSuiteTests));
+            // Arrange
+            TestSuite suite = new TestSuite();
 
-            // TODO: Act
+            // Act
             suite.Add(new DummyTestCase("dummyTestCase"));
 
-            // TODO: Assert
+            // Assert
             Assert.AreEqual(1, suite.Tests.Count);
         }
 
@@ -33,5 +33,4 @@ namespace linxUnitTests
             }
         }
     }
-
 }
