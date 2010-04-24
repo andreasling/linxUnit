@@ -7,11 +7,6 @@ namespace linxUnitProjectTemplate
 {
     public class TestTemplate : TestCase
     {
-        public TestTemplate(string name)
-            : base(name)
-        {
-        }
-
         /// <summary>
         /// This is the set up method
         /// </summary>
@@ -29,18 +24,21 @@ namespace linxUnitProjectTemplate
         }
 
         /// <summary>
-        /// This is a test method. Test method names start with "test"
+        /// This is a test method. Any public instance method except SetUp and TearDown is considered a test method.
         /// </summary>
-        public void testMethod()
+        public void TestMethod()
         {
-            // TODO: Arrange
+            // Arrange
+            // TODO: Add arrange logic here
             bool b = false;
 
-            // TODO: Act
+            // Act
+            // TODO: Add act logic here
             b = !b;
 
-            // TODO: Assert
-            Assert.IsTrue(true);
+            // Assert
+            // TODO: Add assert logic here
+            Assert.IsTrue(b);
         }
     }
 }

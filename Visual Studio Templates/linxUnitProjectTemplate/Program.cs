@@ -10,15 +10,10 @@ namespace linxUnitProjectTemplate
     {
         static void Main(string[] args)
         {
-            TestSuite suite = new TestSuite();
-
-            suite.Add(TestCase.CreateSuite(typeof(TestTemplate)));
-            
-            TestResult result = new TestResult();
-            
-            suite.Run(result);
-            
-            Console.WriteLine(result.Summary());
+            RunHelper.StartTimedTestRun(suite =>
+            {
+                suite.Add(new TestLoader().LoadFromDirectory("."));
+            });
         }
     }
 }
