@@ -11,11 +11,11 @@ namespace linxUnitTests
         {
             RunHelper.StartTimedTestRun(suite =>
             {
-                suite.add(TestCase.CreateSuite(typeof(TestCaseTest)));
-                suite.add(TestCase.CreateSuite(typeof(AssertTest)));
-                suite.add(TestCase.CreateSuite(typeof(TestSuiteTests)));
-                suite.add(TestCase.CreateSuite(typeof(TestLoaderTest)));
-                suite.add(TestCase.CreateSuite(typeof(TestResultTest)));
+                suite.Add(TestCase.CreateSuite(typeof(TestCaseTest)));
+                suite.Add(TestCase.CreateSuite(typeof(AssertTest)));
+                suite.Add(TestCase.CreateSuite(typeof(TestSuiteTests)));
+                suite.Add(TestCase.CreateSuite(typeof(TestLoaderTest)));
+                suite.Add(TestCase.CreateSuite(typeof(TestResultTest)));
             });
         }
     }

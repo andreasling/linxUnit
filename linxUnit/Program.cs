@@ -24,11 +24,11 @@ namespace linxUnit
 
                         if (Directory.Exists(arg))
                         {
-                            suite.add(loader.LoadFromDirectory(arg));
+                            suite.Add(loader.LoadFromDirectory(arg));
                         } 
                         else if (File.Exists(arg))
                         {
-                            suite.add(loader.LoadFromFile(arg));
+                            suite.Add(loader.LoadFromFile(arg));
                         }
                     }
                 });

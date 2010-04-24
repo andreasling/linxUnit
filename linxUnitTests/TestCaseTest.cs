@@ -14,7 +14,7 @@ namespace linxUnitTests
         {
         }
 
-        public override void setUp()
+        public override void SetUp()
         {
             result = new TestResult();
         }
@@ -22,52 +22,52 @@ namespace linxUnitTests
         public void testTemplateMethod()
         {
             WasRun test = new WasRun("testMethod");
-            test.run(result);
+            test.Run(result);
             Assert.AreEqual("setUp testMethod tearDown ", test.log);
         }
 
         public void testResultSummary()
         {
             WasRun test = new WasRun("testMethod");
-            test.run(result);
-            Assert.AreEqual("1 run, 0 failed", result.summary());
+            test.Run(result);
+            Assert.AreEqual("1 run, 0 failed", result.Summary());
         }
 
         public void testFailedResult()
         {
             WasRun test = new WasRun("testBrokenMethod");
-            test.run(result);
-            Assert.AreEqual("1 run, 1 failed", result.summary());
+            test.Run(result);
+            Assert.AreEqual("1 run, 1 failed", result.Summary());
         }
 
         public void testFailedResultFormatting()
         {
-            result.testStarted("testMethod");
-            result.testFailed(new Exception());
-            Assert.AreEqual("1 run, 1 failed", result.summary());
+            result.TestStarted("testMethod");
+            result.TestFailed(new Exception());
+            Assert.AreEqual("1 run, 1 failed", result.Summary());
         }
 
         public void testSuite()
         {
             TestSuite suite = new TestSuite();
-            suite.add(new WasRun("testMethod"));
-            suite.add(new WasRun("testBrokenMethod"));
-            suite.run(result);
-            Assert.AreEqual("2 run, 1 failed", result.summary());
+            suite.Add(new WasRun("testMethod"));
+            suite.Add(new WasRun("testBrokenMethod"));
+            suite.Run(result);
+            Assert.AreEqual("2 run, 1 failed", result.Summary());
         }
 
         public void testCreateSuiteFromCase()
         {
             TestSuite suite = TestCase.CreateSuite(typeof(WasRun));
-            suite.run(result);
-            Assert.AreEqual("2 run, 1 failed", result.summary());
+            suite.Run(result);
+            Assert.AreEqual("2 run, 1 failed", result.Summary());
         }
 
         public void testCreateSuiteFromCaseGeneric()
         {
             TestSuite suite = TestCase.CreateSuite<WasRun>();
-            suite.run(result);
-            Assert.AreEqual("2 run, 1 failed", result.summary());
+            suite.Run(result);
+            Assert.AreEqual("2 run, 1 failed", result.Summary());
         }
 
         public void testCreateSuiteWrongType()
@@ -87,26 +87,26 @@ namespace linxUnitTests
         public void testSetUpTearDownFailed()
         {
             SetUpTearDownFailedTest test = new SetUpTearDownFailedTest("testMethod");
-            test.run(result);
+            test.Run(result);
             Assert.AreEqual("setUp tearDown ", test.log);
         }
 
         public void testDefaultContructor()
         {
-            OnlyDefaultContructorTest test = new OnlyDefaultContructorTest() { name = "testMethod" };
+            OnlyDefaultContructorTest test = new OnlyDefaultContructorTest() { Name = "testMethod" };
 
-            test.run(result);
+            test.Run(result);
 
-            Assert.IsTrue(result.details[0].success);
+            Assert.IsTrue(result.Details[0].Success);
         }
 
         public void testDefaultContructorSuite()
         {
             var suite = TestCase.CreateSuite<OnlyDefaultContructorTest>();
 
-            suite.run(result);
+            suite.Run(result);
 
-            Assert.IsTrue(result.details[0].success);
+            Assert.IsTrue(result.Details[0].Success);
         }
     }
 }

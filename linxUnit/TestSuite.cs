@@ -14,16 +14,16 @@ namespace linxUnit
             tests = new List<ITest>();
         }
 
-        public void add(ITest test)
+        public void Add(ITest test)
         {
             tests.Add(test);
         }
 
-        public void run(TestResult result)
+        public void Run(TestResult result)
         {
             foreach (ITest test in tests)
             {
-                test.run(result);
+                test.Run(result);
             }
         }
     }

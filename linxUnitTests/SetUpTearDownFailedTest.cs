@@ -14,13 +14,13 @@ namespace linxUnitTests
         {
         }
 
-        public override void setUp()
+        public override void SetUp()
         {
             log += "setUp ";
             throw new Exception("SetUpTearDownFailedTest.setUp");
         }
 
-        public override void tearDown()
+        public override void TearDown()
         {
             log += "tearDown ";
             //throw new Exception("SetUpTearDownFailedTest.tearDown");

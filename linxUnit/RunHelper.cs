@@ -18,7 +18,7 @@ namespace linxUnit
             addTests(suite);
 
             TestResult result = new TestResult();
-            suite.run(result);
+            suite.Run(result);
 
             stopwatch.Stop();
 

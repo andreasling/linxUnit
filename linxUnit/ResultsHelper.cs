@@ -9,23 +9,23 @@ namespace linxUnit
     {
         public static void DisplayResults(TestResult result)
         {
-            foreach (var detail in result.details)
+            foreach (var detail in result.Details)
             {
                 var oldColor = Console.ForegroundColor;
 
                 var color =
-                    detail.inconclusive ?
+                    detail.Inconclusive ?
                         ConsoleColor.DarkYellow :
-                    detail.success ?
+                    detail.Success ?
                         ConsoleColor.DarkGreen :
                         ConsoleColor.DarkRed;
 
                 Console.ForegroundColor = color;
 
-                Console.Write(detail.message);
-                if (!detail.success && detail.failure != null)
+                Console.Write(detail.Message);
+                if (!detail.Success && detail.failure != null)
                 {
-                    Console.Write(": " + detail.failure.exception.Message);
+                    Console.Write(": " + detail.failure.Exception.Message);
                 }
                 Console.WriteLine();
 
@@ -34,7 +34,7 @@ namespace linxUnit
 
             Console.WriteLine();
 
-            Console.WriteLine(result.summary());
+            Console.WriteLine(result.Summary());
         }
     }
 }

@@ -7,56 +7,56 @@ namespace linxUnit
 {
     public class TestResult
     {
-        public IList<TestResultDetails> details { get { return detailList; } }
-        private List<TestResultDetails> detailList;
+        public IList<TestResultDetails> Details { get { return details; } }
+        private List<TestResultDetails> details;
 
         public TestResult()
         {
-            detailList = new List<TestResultDetails>();
+            details = new List<TestResultDetails>();
         }
 
-        public void testStarted(string name)
+        public void TestStarted(string name)
         {
             var detail = new TestResultDetails() 
             { 
-                inconclusive = true, 
-                name = name,
-                message = FormatDetailMessage(name, "inconclusive")
+                Inconclusive = true, 
+                Name = name,
+                Message = FormatDetailMessage(name, "inconclusive")
             };
 
-            detailList.Add(detail);
+            details.Add(detail);
         }
 
-        public void testFailed(Exception exception)
+        public void TestFailed(Exception exception)
         {
-            var detail = detailList.Last();
+            var detail = details.Last();
 
-            detail.inconclusive = false;
-            detail.message = FormatDetailMessage(detail.name, "failed");
-            detail.failure = new TestFailure() { exception = exception };
+            detail.Inconclusive = false;
+            detail.Message = FormatDetailMessage(detail.Name, "failed");
+            detail.failure = new TestFailure() { Exception = exception };
         }
 
-        public void testSucceeded()
+        public void TestSucceeded()
         {
-            var detail = detailList.Last();
+            var detail = details.Last();
 
-            detail.inconclusive = false;
-            detail.message = FormatDetailMessage(detail.name, "succeeded");
+            detail.Inconclusive = false;
+            detail.Message = FormatDetailMessage(detail.Name, "succeeded");
         }
 
-        public string summary()
+        public string Summary()
         {
             return string.Format("{0} run, {1} failed", runCount(), errorCount());
         }
 
         private int errorCount()
         {
-            return details.Count(d => d.failure != null);
+            return Details.Count(d => d.failure != null);
         }
 
         private int runCount()
         {
-            return details.Count;
+            return Details.Count;
         }
 
         private static string FormatDetailMessage(string name, string messageText)
