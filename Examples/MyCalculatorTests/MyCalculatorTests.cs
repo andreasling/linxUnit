@@ -7,21 +7,25 @@ using MyCalculator;
 namespace MyCalculatorTests
 {
     /* todolist:
-     * todo: Add integers
+     * done: Add integers
+     * todo: Substract integers
      */
 
     class MyCalculatorTests : TestCase
     {
-        public MyCalculatorTests(string name)
-            : base(name)
-        {
-        }
-
         public void testAdd()
         {
+            // Arrange
             Calculator calculator = new Calculator();
-            int augend = 1, addend = 2, expected = 3, actual;
+            int augend = 1, 
+                addend = 2, 
+                expected = 3, 
+                actual;
+
+            // Act
             actual = calculator.Add(augend, addend);
+
+            // Assert
             Assert.AreEqual(expected, actual);
         }
     }
