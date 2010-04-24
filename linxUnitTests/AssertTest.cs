@@ -111,7 +111,6 @@ namespace linxUnitTests
 
         public void testAreEqualArrayLengthFailure()
         {
-
             try
             {
                 Assert.AreEqual(new byte[] { 0, 1, 2 }, new byte[] { 0, 1, 2, 3 });
@@ -163,18 +162,14 @@ namespace linxUnitTests
 
         public void testIsNullSuccess()
         {
-            object o = null;
-
-            Assert.IsNull(o);
+            Assert.IsNull(null as object);
         }
 
         public void testIsNullFailure()
         {
-            object o = new object();
-
             try
             {
-                Assert.IsNull(o);
+                Assert.IsNull(new object());
                 throw new Exception();
             }
             catch (AssertFailedException exception)
@@ -185,18 +180,14 @@ namespace linxUnitTests
 
         public void testIsNotNullSuccess()
         {
-            object o = new object();
-
-            Assert.IsNotNull(o);
+            Assert.IsNotNull(new object());
         }
 
         public void testIsNotNullFailure()
         {
-            object o = null;
-
             try
             {
-                Assert.IsNotNull(o);
+                Assert.IsNotNull(null as object);
                 throw new Exception();
             }
             catch (AssertFailedException exception)
