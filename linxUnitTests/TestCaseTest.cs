@@ -63,6 +63,27 @@ namespace linxUnitTests
             Assert.AreEqual("2 run, 1 failed", result.summary());
         }
 
+        public void testCreateSuiteFromCaseGeneric()
+        {
+            TestSuite suite = TestCase.CreateSuite<WasRun>();
+            suite.run(result);
+            Assert.AreEqual("2 run, 1 failed", result.summary());
+        }
+
+        public void testCreateSuiteWrongType()
+        {
+            try
+            {
+                TestSuite suite = TestCase.CreateSuite(typeof(object));
+
+                Assert.Fail();
+            }
+            catch (ArgumentException actual)
+            {
+                Assert.IsNotNull(actual.Message);
+            }
+        }
+
         public void testSetUpTearDownFailed()
         {
             SetUpTearDownFailedTest test = new SetUpTearDownFailedTest("testMethod");
