@@ -11,7 +11,7 @@ namespace MyCalculatorTests
         {
             RunHelper.StartTimedTestRun(suite =>
             {
-                suite.add(new TestLoader().LoadFromDirectory(System.IO.Path.GetFullPath(".")));
+                suite.add(new TestLoader().LoadFromDirectory("."));
             });
         }
     }
