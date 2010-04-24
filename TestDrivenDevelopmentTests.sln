@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCalculatorTests", "Exampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linxUnitProjectTemplate", "Visual Studio Templates\linxUnitProjectTemplate\linxUnitProjectTemplate.csproj", "{7EE2E754-114A-409B-8FC2-9C92349F0064}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linxUnitTestTests", "linxUnitTestTests\linxUnitTestTests.csproj", "{D2F1CECC-A058-4DAB-A9A0-FE2375EB897E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLoaderTestTests", "TestLoaderTestTests\TestLoaderTestTests.csproj", "{4E3327AF-341D-4E7B-911F-45E4B5CB7233}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{7EE2E754-114A-409B-8FC2-9C92349F0064}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EE2E754-114A-409B-8FC2-9C92349F0064}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EE2E754-114A-409B-8FC2-9C92349F0064}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F1CECC-A058-4DAB-A9A0-FE2375EB897E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F1CECC-A058-4DAB-A9A0-FE2375EB897E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F1CECC-A058-4DAB-A9A0-FE2375EB897E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F1CECC-A058-4DAB-A9A0-FE2375EB897E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E3327AF-341D-4E7B-911F-45E4B5CB7233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E3327AF-341D-4E7B-911F-45E4B5CB7233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E3327AF-341D-4E7B-911F-45E4B5CB7233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E3327AF-341D-4E7B-911F-45E4B5CB7233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

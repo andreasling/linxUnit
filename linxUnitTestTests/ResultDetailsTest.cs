@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using linxUnit;
 
-namespace linxUnitTests
+namespace linxUnitTestTests
 {
-    public class ResultDetailsTestTest : TestCase
+    public class ResultDetailsTest : TestCase
     {
         public string log;
 
-        public ResultDetailsTestTest(string name)
+        public ResultDetailsTest(string name)
             : base(name)
         {
         }

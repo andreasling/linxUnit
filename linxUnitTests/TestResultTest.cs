@@ -2,6 +2,7 @@ using linxUnit;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using linxUnitTestTests;
 
 namespace linxUnitTests
 {
@@ -86,7 +87,7 @@ namespace linxUnitTests
         {
             var result = new TestResult();
 
-            TestSuite suite = TestCase.CreateSuite(typeof(ResultDetailsTestTest));
+            TestSuite suite = TestCase.CreateSuite(typeof(ResultDetailsTest));
 
             suite.Run(result);
 
