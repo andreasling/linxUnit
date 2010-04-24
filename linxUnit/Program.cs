@@ -12,8 +12,6 @@ namespace linxUnit
     {
         static void Main(string[] args)
         {
-            //Debug.Listeners.Add(new ConsoleTraceListener(true));
-
             if (args.Length > 0)
             {
                 RunHelper.StartTimedTestRun(suite =>

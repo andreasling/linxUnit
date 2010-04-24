@@ -102,7 +102,7 @@ namespace linxUnitTests
 
         public void testDefaultContructorSuite()
         {
-            var suite = TestCase.CreateSuite(typeof(OnlyDefaultContructorTest));
+            var suite = TestCase.CreateSuite<OnlyDefaultContructorTest>();
 
             suite.run(result);
 
