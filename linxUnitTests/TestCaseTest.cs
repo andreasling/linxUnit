@@ -69,5 +69,23 @@ namespace linxUnitTests
             test.run(result);
             Assert.AreEqual("setUp tearDown ", test.log);
         }
+
+        public void testDefaultContructor()
+        {
+            OnlyDefaultContructorTest test = new OnlyDefaultContructorTest() { name = "testMethod" };
+
+            test.run(result);
+
+            Assert.IsTrue(result.details[0].success);
+        }
+
+        public void testDefaultContructorSuite()
+        {
+            var suite = TestCase.CreateSuite(typeof(OnlyDefaultContructorTest));
+
+            suite.run(result);
+
+            Assert.IsTrue(result.details[0].success);
+        }
     }
 }

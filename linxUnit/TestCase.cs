@@ -8,11 +8,16 @@ namespace linxUnit
 {
     public abstract class TestCase : ITest
     {
-        protected string name;
+        internal string name;
 
         public TestCase(string name)
         {
             this.name = name;
+        }
+
+        protected TestCase()
+        {
+
         }
 
         public virtual void setUp() { }
@@ -49,14 +54,14 @@ namespace linxUnit
             GetTestMethod().Invoke(this, null);
         }
 
-        private static BindingFlags bindingFlags = 
+        private static BindingFlags testMethodbindingFlags = 
             BindingFlags.Instance | 
             BindingFlags.DeclaredOnly | 
             BindingFlags.Public;
 
         private MethodInfo GetTestMethod()
         {
-            return GetType().GetMethod(name, bindingFlags);
+            return GetType().GetMethod(name, testMethodbindingFlags);
         }
 
         public static TestSuite CreateSuite(Type type)
@@ -97,14 +102,34 @@ namespace linxUnit
             return testCaseMethods;
         }
 
+        private static BindingFlags testConstructorBindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
         private static TestCase CreateTestCase(Type type, MethodInfo method)
         {
-            return Activator.CreateInstance(type, method.Name) as TestCase;
+            var constructors = type.GetConstructors(testConstructorBindingFlags);
+
+            if (constructors.Any(c => IsNameConstructor(c)))
+            {
+                return Activator.CreateInstance(type, method.Name) as TestCase;
+            }
+            else
+            {
+                TestCase testCase = Activator.CreateInstance(type) as TestCase;
+                testCase.name = method.Name;
+                return testCase;
+            }
+        }
+
+        private static bool IsNameConstructor(ConstructorInfo c)
+        {
+            var parameters = c.GetParameters();
+
+            return parameters.Length == 1 && parameters[0].ParameterType == typeof(string);
         }
 
         private static MethodInfo[] GetMethods(Type type)
         {
-            return type.GetMethods(bindingFlags);
+            return type.GetMethods(testMethodbindingFlags);
         }
 
         private static bool IsSetUpOrTearDown(MethodInfo methodInfo)

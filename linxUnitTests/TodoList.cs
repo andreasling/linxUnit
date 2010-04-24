@@ -12,9 +12,9 @@
  * done: Create Assert.IsTrue
  * done: Create Assert.AreEqualS
  * todo: (? public -> test method) Only test methods should be included when creating TestSuite from a TestCase class
- * todo: Report test case details
+ * done: Report test case details
  * todo: Report test suite details
- * todo: expected exeption
+ * todo: expected exception? try-catch-pattern, ExpectException<T>(actual => Assert...(expected, actual)), Assert.ThrowsException(...) ?
  * todo: C#-ify
  * todo: Handle tearDown errors (?)
  * todo: setUp (and tearDown) errors in TestResult
