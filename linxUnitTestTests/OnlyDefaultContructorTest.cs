@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using linxUnit;
 
-namespace linxUnitTests
+namespace linxUnitTestTests
 {
-    class OnlyDefaultContructorTest : TestCase
+    public class OnlyDefaultContructorTest : TestCase
     {
         public void testMethod()
         {

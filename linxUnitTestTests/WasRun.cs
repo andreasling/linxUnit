@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using linxUnit;
 
-namespace linxUnitTests
+namespace linxUnitTestTests
 {
     public class WasRun : TestCase
     {
