@@ -12,7 +12,15 @@ namespace linxUnit
     {
         public TestSuite LoadFromDirectory(string directory)
         {
-            Debug.WriteLine("LoadFromDirectory: " + directory);
+            return LoadFromDirectoryAbsolute(Path.GetFullPath(directory));
+        }
+
+        private static TestSuite LoadFromDirectoryAbsolute(string directory)
+        {
+            if (!Directory.Exists(directory))
+            {
+                throw new ArgumentException("Directory does not exist", "directory");
+            }
 
             SetupAssemblyResolve(directory);
 
@@ -26,6 +34,11 @@ namespace linxUnit
         public TestSuite LoadFromFile(string file)
         {
             var fileInfo = new FileInfo(file);
+
+            if (!fileInfo.Exists)
+            {
+                throw new ArgumentException("File does not exist", "file");
+            }
 
             var testTypes = LoadAssemblyAndGetTestTypes(fileInfo);
 
