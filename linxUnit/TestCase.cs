@@ -66,6 +66,11 @@ namespace linxUnit
 
         public static TestSuite CreateSuite(Type type)
         {
+            if (!typeof(ITest).IsAssignableFrom(type))
+            {
+                throw new ArgumentException("Type must derive from ITest", "type");
+            }
+
             var testCaseMethods = GetTestCaseMethods(type);
 
             var testCases = CreateTestCases(type, testCaseMethods);
@@ -86,6 +91,11 @@ namespace linxUnit
             return suite;
         }
 
+        protected static TestSuite CreateSuite<T>() where T : ITest
+        {
+            return CreateSuite(typeof(T));
+        }
+
         private static IEnumerable<TestCase> CreateTestCases(Type type, IEnumerable<MethodInfo> testCaseMethods)
         {
             var testCases =
@@ -99,6 +109,7 @@ namespace linxUnit
 
             var testCaseMethods =
                 methods.Where(method => !IsSetUpOrTearDown(method));
+
             return testCaseMethods;
         }
 
