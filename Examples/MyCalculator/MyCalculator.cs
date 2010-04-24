@@ -10,5 +10,10 @@ namespace MyCalculator
         {
             return augend + addend;
         }
+
+        public int Substract(int minuend, int subtrahend)
+        {
+            return minuend - subtrahend;
+        }
     }
 }
