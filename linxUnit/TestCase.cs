@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
+using System.Linq;
 
 namespace linxUnit
 {
@@ -22,18 +23,9 @@ namespace linxUnit
             result.testStarted(name);
             try
             {
-                try
-                {
-                    this.setUp();
-                }
-                catch (Exception/* exception*/)
-                {
-                    //Console.WriteLine("setUp failed in {0}.{1}", this.GetType().Name, this.name);
-                    throw;
-                }
-                Type type = this.GetType();
-                MethodInfo methodInfo = type.GetMethod(name, BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public);
-                methodInfo.Invoke(this, null);
+                this.setUp();
+
+                RunTestMethod();
 
                 result.testSucceeded();
             }
@@ -41,41 +33,85 @@ namespace linxUnit
             {
                 var innerException = exception.InnerException;
 
-                if (innerException is AssertInconclusiveException)
-                {
-                }
-                else
+                if (!(innerException is AssertInconclusiveException))
                 {
                     result.testFailed(innerException);
                 }
             }
             finally
             {
-                //try
-                //{
                 this.tearDown();
-                //}
-                //catch (Exception)
-                //{
-                //    Console.WriteLine("tearDown failed in {0}.{1}", this.GetType().Name, this.name);
-                //}
             }
+        }
+
+        private void RunTestMethod()
+        {
+            GetTestMethod().Invoke(this, null);
+        }
+
+        private static BindingFlags bindingFlags = 
+            BindingFlags.Instance | 
+            BindingFlags.DeclaredOnly | 
+            BindingFlags.Public;
+
+        private MethodInfo GetTestMethod()
+        {
+            return GetType().GetMethod(name, bindingFlags);
         }
 
         public static TestSuite CreateSuite(Type type)
         {
-            TestSuite suite = new TestSuite();
-            MethodInfo[] methodInfos = type.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public);
+            var testCaseMethods = GetTestCaseMethods(type);
 
-            foreach (MethodInfo methodInfo in methodInfos)
-            {
-                if (methodInfo.Name != "setUp" && methodInfo.Name != "tearDown")
-                {
-                    suite.add((TestCase)type.GetConstructor(new Type[] { typeof(string) }).Invoke(new object[] { methodInfo.Name }));
-                }
-            }
+            var testCases = CreateTestCases(type, testCaseMethods);
+
+            TestSuite suite = CreateTestSuite(testCases);
 
             return suite;
+        }
+
+        private static TestSuite CreateTestSuite(IEnumerable<TestCase> testCases)
+        {
+            TestSuite suite = new TestSuite();
+
+            foreach (var testCase in testCases)
+            {
+                suite.add(testCase);
+            }
+            return suite;
+        }
+
+        private static IEnumerable<TestCase> CreateTestCases(Type type, IEnumerable<MethodInfo> testCaseMethods)
+        {
+            var testCases =
+                testCaseMethods.Select(method => CreateTestCase(type, method));
+            return testCases;
+        }
+
+        private static IEnumerable<MethodInfo> GetTestCaseMethods(Type type)
+        {
+            var methods = GetMethods(type);
+
+            var testCaseMethods =
+                methods.Where(method => !IsSetUpOrTearDown(method));
+            return testCaseMethods;
+        }
+
+        private static TestCase CreateTestCase(Type type, MethodInfo method)
+        {
+            return Activator.CreateInstance(type, method.Name) as TestCase;
+        }
+
+        private static MethodInfo[] GetMethods(Type type)
+        {
+            return type.GetMethods(bindingFlags);
+        }
+
+        private static bool IsSetUpOrTearDown(MethodInfo methodInfo)
+        {
+            return 
+                methodInfo.Name == "setUp" || 
+                methodInfo.Name == "tearDown";
         }
     }
 

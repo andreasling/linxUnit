@@ -33,6 +33,10 @@ namespace linxUnitTests
         {
             throw new Exception();
         }
+
+        private void notATestMethod()
+        {
+        }
     }
 
 }
