@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="TestDrivenDevelopmentTests">
+</Property><Property Name="Solution File" Value="D:\git\linxUnit\TestDrivenDevelopmentTests.sln">
+</Property><Property Name="User Options File" Value="D:\git\linxUnit\TestDrivenDevelopmentTests.suo">
+</Property><Property Name="Date" Value="den 24 april 2010">
+</Property><Property Name="Time" Value="23:16">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="TestDrivenDevelopmentTests.sln" Description="File successfully backed up as D:\git\linxUnit\Backup1\TestDrivenDevelopmentTests.sln">
+</Event><Event ErrorLevel="0" Project="" Source="TestDrivenDevelopmentTests.suo" Description="File successfully backed up as D:\git\linxUnit\Backup1\TestDrivenDevelopmentTests.suo">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\linxUnit.csproj" Description="Project file successfully backed up as D:\git\linxUnit\Backup1\linxUnit\linxUnit.csproj">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\linxUnit.csproj.user" Description="Project user file successfully backed up as D:\git\linxUnit\Backup1\linxUnit\linxUnit.csproj.user">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\Assert.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\Assert.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\AssertFailedException.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\AssertFailedException.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\AssertInconclusiveException.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\AssertInconclusiveException.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\ITest.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\ITest.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\Program.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\Program.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\ResultsHelper.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\ResultsHelper.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\RunHelper.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\RunHelper.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\TestCase.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\TestCase.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\TestLoader.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\TestLoader.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\TestResult.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\TestResult.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\TestResultDetails.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\TestResultDetails.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\TestSuite.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\TestSuite.cs">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\app.config" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnit\app.config">
+</Event><Event ErrorLevel="0" Project="linxUnit" Source="linxUnit\linxUnit.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="linxUnit" Source="linxUnit\linxUnit.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\linxUnitTests.csproj" Description="Project file successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\linxUnitTests.csproj">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\linxUnitTests.csproj.user" Description="Project user file successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\linxUnitTests.csproj.user">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\AssertTest.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\AssertTest.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\Program.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\Program.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\TestCaseTest.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\TestCaseTest.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\TestLoaderTest.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\TestLoaderTest.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\TestResultTest.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\TestResultTest.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\TestSuiteTests.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\TestSuiteTests.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\TodoList.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\TodoList.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\app.config" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTests\app.config">
+</Event><Event ErrorLevel="0" Project="linxUnitTests" Source="linxUnitTests\linxUnitTests.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="linxUnitTests" Source="linxUnitTests\linxUnitTests.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="MyCalculator" Source="Examples\MyCalculator\MyCalculator.csproj" Description="Project file successfully backed up as D:\git\linxUnit\Backup1\Examples\MyCalculator\MyCalculator.csproj">
+</Event><Event ErrorLevel="0" Project="MyCalculator" Source="Examples\MyCalculator\MyCalculator.csproj.user" Description="Project user file successfully backed up as D:\git\linxUnit\Backup1\Examples\MyCalculator\MyCalculator.csproj.user">
+</Event><Event ErrorLevel="0" Project="MyCalculator" Source="Examples\MyCalculator\MyCalculator.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\Examples\MyCalculator\MyCalculator.cs">
+</Event><Event ErrorLevel="0" Project="MyCalculator" Source="Examples\MyCalculator\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\Examples\MyCalculator\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="MyCalculator" Source="Examples\MyCalculator\MyCalculator.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="MyCalculator" Source="Examples\MyCalculator\MyCalculator.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="MyCalculatorTests" Source="Examples\MyCalculatorTests\MyCalculatorTests.csproj" Description="Project file successfully backed up as D:\git\linxUnit\Backup1\Examples\MyCalculatorTests\MyCalculatorTests.csproj">
+</Event><Event ErrorLevel="0" Project="MyCalculatorTests" Source="Examples\MyCalculatorTests\MyCalculatorTests.csproj.user" Description="Project user file successfully backed up as D:\git\linxUnit\Backup1\Examples\MyCalculatorTests\MyCalculatorTests.csproj.user">
+</Event><Event ErrorLevel="0" Project="MyCalculatorTests" Source="Examples\MyCalculatorTests\MyCalculatorTests.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\Examples\MyCalculatorTests\MyCalculatorTests.cs">
+</Event><Event ErrorLevel="0" Project="MyCalculatorTests" Source="Examples\MyCalculatorTests\Program.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\Examples\MyCalculatorTests\Program.cs">
+</Event><Event ErrorLevel="0" Project="MyCalculatorTests" Source="Examples\MyCalculatorTests\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\Examples\MyCalculatorTests\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="MyCalculatorTests" Source="Examples\MyCalculatorTests\app.config" Description="File successfully backed up as D:\git\linxUnit\Backup1\Examples\MyCalculatorTests\app.config">
+</Event><Event ErrorLevel="0" Project="MyCalculatorTests" Source="Examples\MyCalculatorTests\MyCalculatorTests.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="MyCalculatorTests" Source="Examples\MyCalculatorTests\MyCalculatorTests.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="linxUnitProjectTemplate" Source="Visual Studio Templates\linxUnitProjectTemplate\linxUnitProjectTemplate.csproj" Description="Project file successfully backed up as D:\git\linxUnit\Backup1\Visual Studio Templates\linxUnitProjectTemplate\linxUnitProjectTemplate.csproj">
+</Event><Event ErrorLevel="0" Project="linxUnitProjectTemplate" Source="Visual Studio Templates\linxUnitProjectTemplate\linxUnitProjectTemplate.csproj.user" Description="Project user file successfully backed up as D:\git\linxUnit\Backup1\Visual Studio Templates\linxUnitProjectTemplate\linxUnitProjectTemplate.csproj.user">
+</Event><Event ErrorLevel="0" Project="linxUnitProjectTemplate" Source="Visual Studio Templates\linxUnitProjectTemplate\Program.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\Visual Studio Templates\linxUnitProjectTemplate\Program.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitProjectTemplate" Source="Visual Studio Templates\linxUnitProjectTemplate\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\Visual Studio Templates\linxUnitProjectTemplate\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitProjectTemplate" Source="Visual Studio Templates\linxUnitProjectTemplate\TestTemplate.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\Visual Studio Templates\linxUnitProjectTemplate\TestTemplate.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitProjectTemplate" Source="Visual Studio Templates\linxUnitProjectTemplate\app.config" Description="File successfully backed up as D:\git\linxUnit\Backup1\Visual Studio Templates\linxUnitProjectTemplate\app.config">
+</Event><Event ErrorLevel="0" Project="linxUnitProjectTemplate" Source="Visual Studio Templates\linxUnitProjectTemplate\linxUnitProjectTemplate.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="linxUnitProjectTemplate" Source="Visual Studio Templates\linxUnitProjectTemplate\linxUnitProjectTemplate.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="linxUnitTestTests" Source="linxUnitTestTests\linxUnitTestTests.csproj" Description="Project file successfully backed up as D:\git\linxUnit\Backup1\linxUnitTestTests\linxUnitTestTests.csproj">
+</Event><Event ErrorLevel="0" Project="linxUnitTestTests" Source="linxUnitTestTests\OnlyDefaultContructorTest.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTestTests\OnlyDefaultContructorTest.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTestTests" Source="linxUnitTestTests\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTestTests\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTestTests" Source="linxUnitTestTests\ResultDetailsTest.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTestTests\ResultDetailsTest.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTestTests" Source="linxUnitTestTests\SetUpTearDownFailedTest.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTestTests\SetUpTearDownFailedTest.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTestTests" Source="linxUnitTestTests\WasRun.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\linxUnitTestTests\WasRun.cs">
+</Event><Event ErrorLevel="0" Project="linxUnitTestTests" Source="linxUnitTestTests\linxUnitTestTests.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="linxUnitTestTests" Source="linxUnitTestTests\linxUnitTestTests.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="TestLoaderTestTests" Source="TestLoaderTestTests\TestLoaderTestTests.csproj" Description="Project file successfully backed up as D:\git\linxUnit\Backup1\TestLoaderTestTests\TestLoaderTestTests.csproj">
+</Event><Event ErrorLevel="0" Project="TestLoaderTestTests" Source="TestLoaderTestTests\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\TestLoaderTestTests\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="TestLoaderTestTests" Source="TestLoaderTestTests\TestClass.cs" Description="File successfully backed up as D:\git\linxUnit\Backup1\TestLoaderTestTests\TestClass.cs">
+</Event><Event ErrorLevel="0" Project="TestLoaderTestTests" Source="TestLoaderTestTests\TestLoaderTestTests.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="TestLoaderTestTests" Source="TestLoaderTestTests\TestLoaderTestTests.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="TestDrivenDevelopmentTests.sln" Description="The solution file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="" Source="TestDrivenDevelopmentTests.sln" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="linxUnitTestTests" Source="linxUnitTestTests\linxUnitTestTests.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="TestLoaderTestTests" Source="TestLoaderTestTests\TestLoaderTestTests.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
