@@ -12,13 +12,13 @@ namespace linxUnitProjectTemplate
         {
             TestSuite suite = new TestSuite();
 
-            suite.add(TestCase.CreateSuite(typeof(TestTemplate)));
+            suite.Add(TestCase.CreateSuite(typeof(TestTemplate)));
             
             TestResult result = new TestResult();
             
-            suite.run(result);
+            suite.Run(result);
             
-            Console.WriteLine(result.summary());
+            Console.WriteLine(result.Summary());
         }
     }
 }

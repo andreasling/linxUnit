@@ -7,8 +7,8 @@ namespace linxUnit
 {
     public class TestResultDetails
     {
-        public bool success { get { return !inconclusive && isSuccess(); } }
-        public bool inconclusive { get; set; }
+        public bool Success { get { return !Inconclusive && isSuccess(); } }
+        public bool Inconclusive { get; set; }
         public TestFailure failure { get; set; }
 
         private bool isSuccess()
@@ -16,13 +16,13 @@ namespace linxUnit
             return failure == null;
         }
 
-        public string message { get; set; }
+        public string Message { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
     }
 
     public class TestFailure
     {
-        public Exception exception { get; internal set; }
+        public Exception Exception { get; internal set; }
     }
 }

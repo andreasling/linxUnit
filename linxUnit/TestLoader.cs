@@ -149,7 +149,7 @@ namespace linxUnit
 
             foreach (var childSuite in childSuites)
             {
-                suite.add(childSuite);
+                suite.Add(childSuite);
             }
 
             return suite;

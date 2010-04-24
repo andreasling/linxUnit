@@ -6,6 +6,6 @@ namespace linxUnit
 {
     public interface ITest
     {
-        void run(TestResult result);
+        void Run(TestResult result);
     }
 }

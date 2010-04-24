@@ -8,7 +8,11 @@ namespace linxUnit
 {
     public abstract class TestCase : ITest
     {
-        internal string name;
+        protected string name;
+        internal string Name
+        {
+            set { name = value; }
+        }
 
         public TestCase(string name)
         {
@@ -20,19 +24,19 @@ namespace linxUnit
 
         }
 
-        public virtual void setUp() { }
-        public virtual void tearDown() { }
+        public virtual void SetUp() { }
+        public virtual void TearDown() { }
 
-        public void run(TestResult result)
+        public void Run(TestResult result)
         {
-            result.testStarted(name);
+            result.TestStarted(name);
             try
             {
-                this.setUp();
+                this.SetUp();
 
                 RunTestMethod();
 
-                result.testSucceeded();
+                result.TestSucceeded();
             }
             catch (Exception exception)
             {
@@ -40,12 +44,12 @@ namespace linxUnit
 
                 if (!(innerException is AssertInconclusiveException))
                 {
-                    result.testFailed(innerException);
+                    result.TestFailed(innerException);
                 }
             }
             finally
             {
-                this.tearDown();
+                this.TearDown();
             }
         }
 
@@ -86,7 +90,7 @@ namespace linxUnit
 
             foreach (var testCase in testCases)
             {
-                suite.add(testCase);
+                suite.Add(testCase);
             }
             return suite;
         }
@@ -146,8 +150,8 @@ namespace linxUnit
         private static bool IsSetUpOrTearDown(MethodInfo methodInfo)
         {
             return 
-                methodInfo.Name == "setUp" || 
-                methodInfo.Name == "tearDown";
+                methodInfo.Name == "SetUp" || 
+                methodInfo.Name == "TearDown";
         }
     }
 

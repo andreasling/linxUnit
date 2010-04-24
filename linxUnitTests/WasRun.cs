@@ -14,12 +14,12 @@ namespace linxUnitTests
         {
         }
 
-        public override void setUp()
+        public override void SetUp()
         {
             log = "setUp ";
         }
 
-        public override void tearDown()
+        public override void TearDown()
         {
             log += "tearDown ";
         }

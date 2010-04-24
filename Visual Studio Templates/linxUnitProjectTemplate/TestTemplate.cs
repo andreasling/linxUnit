@@ -15,7 +15,7 @@ namespace linxUnitProjectTemplate
         /// <summary>
         /// This is the set up method
         /// </summary>
-        public override void setUp()
+        public override void SetUp()
         {
             // TODO: Add set up logic here
         }
@@ -23,7 +23,7 @@ namespace linxUnitProjectTemplate
         /// <summary>
         /// This is the tear down method
         /// </summary>
-        public override void tearDown()
+        public override void TearDown()
         {
             // TODO: Add tear down logic here
         }

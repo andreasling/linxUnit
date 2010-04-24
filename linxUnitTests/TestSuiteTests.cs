@@ -18,7 +18,7 @@ namespace linxUnitTests
             TestSuite suite = new TestSuite(); // TestCase.CreateSuite(typeof(TestSuiteTests));
 
             // TODO: Act
-            suite.add(new DummyTestCase("dummyTestCase"));
+            suite.Add(new DummyTestCase("dummyTestCase"));
 
             // TODO: Assert
             Assert.AreEqual(1, suite.Tests.Count);
