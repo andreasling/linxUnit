@@ -109,5 +109,20 @@ namespace linxUnitTests
 
             Assert.IsTrue(result.Details[0].Success);
         }
+
+        public void TestDefaultContructorNoNameFailure()
+        {
+            try
+            {
+                var test = new OnlyDefaultContructorTest();
+
+                test.Run(result);
+
+                Assert.Fail();
+            }
+            catch (InvalidOperationException actual)
+            {
+            }
+        }
     }
 }

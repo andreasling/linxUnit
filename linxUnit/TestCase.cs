@@ -29,6 +29,11 @@ namespace linxUnit
 
         public void Run(TestResult result)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new InvalidOperationException("No test specified");
+            }
+
             result.TestStarted(name);
             try
             {
