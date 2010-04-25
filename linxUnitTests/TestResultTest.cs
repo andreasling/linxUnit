@@ -111,5 +111,22 @@ namespace linxUnitTests
             Assert.AreEqual("testMethodInconclusive inconclusive", result.Details[2].Message);
             //Assert.AreEqual("Test was inconclusive.", result.details[2].Exception.Message);
         }
+
+        public void TestResultDetailsState()
+        {
+            var result = new TestResult();
+
+            TestSuite suite = TestCase.CreateSuite(typeof(ResultDetailsTest));
+
+            suite.Run(result);
+
+            Assert.AreEqual(3, result.Details.Count);
+
+            Assert.AreEqual(TestResultState.Success, result.Details[0].State);
+
+            Assert.AreEqual(TestResultState.Failure, result.Details[1].State);
+
+            Assert.AreEqual(TestResultState.Inconclusive, result.Details[2].State);
+        }
     }
 }
