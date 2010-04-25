@@ -13,14 +13,23 @@ namespace linxUnit
             {
                 var oldColor = Console.ForegroundColor;
 
-                var color =
-                    detail.Inconclusive ?
-                        ConsoleColor.DarkYellow :
-                    detail.Success ?
-                        ConsoleColor.DarkGreen :
-                        ConsoleColor.DarkRed;
+                switch (detail.State)
+	            {
+		            case TestResultState.Inconclusive:
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        break;
 
-                Console.ForegroundColor = color;
+                    case TestResultState.Success:
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        break;
+
+                    case TestResultState.Failure:
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        break;
+
+                    default:
+                        break;
+	            }
 
                 Console.Write(detail.Message);
                 if (!detail.Success && detail.Exception != null)
