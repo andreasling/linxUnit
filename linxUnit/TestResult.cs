@@ -19,7 +19,7 @@ namespace linxUnit
         {
             var detail = new TestResultDetails() 
             { 
-                Inconclusive = true, 
+                State = TestResultState.Inconclusive, 
                 Name = name,
                 Message = FormatDetailMessage(name, "inconclusive")
             };
@@ -31,7 +31,7 @@ namespace linxUnit
         {
             var detail = details.Last();
 
-            detail.Inconclusive = false;
+            detail.State = TestResultState.Failure;
             detail.Message = FormatDetailMessage(detail.Name, "failed");
             detail.Exception = exception;
         }
@@ -40,7 +40,7 @@ namespace linxUnit
         {
             var detail = details.Last();
 
-            detail.Inconclusive = false;
+            detail.State = TestResultState.Success;
             detail.Message = FormatDetailMessage(detail.Name, "succeeded");
         }
 
