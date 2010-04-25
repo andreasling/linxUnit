@@ -26,7 +26,7 @@ namespace linxUnitTests
             Assert.IsTrue(result.Details[0].Success);
             Assert.AreEqual("testMethod", result.Details[0].Name);
             Assert.AreEqual("testMethod succeeded", result.Details[0].Message);
-            Assert.IsNull(result.Details[0].failure);
+            Assert.IsNull(result.Details[0].Exception);
         }
 
         public void testResultDetailsInconclusive()
@@ -41,7 +41,7 @@ namespace linxUnitTests
             Assert.IsFalse(result.Details[0].Success);
             Assert.AreEqual("testMethod", result.Details[0].Name);
             Assert.AreEqual("testMethod inconclusive", result.Details[0].Message);
-            Assert.IsNull(result.Details[0].failure);
+            Assert.IsNull(result.Details[0].Exception);
         }
 
         public void testResultDetailsFailure()
@@ -57,7 +57,7 @@ namespace linxUnitTests
             Assert.IsFalse(result.Details[0].Success);
             Assert.AreEqual("testMethod", result.Details[0].Name);
             Assert.AreEqual("testMethod failed", result.Details[0].Message);
-            Assert.AreEqual("Exception of type 'System.Exception' was thrown.", result.Details[0].failure.Exception.Message);
+            Assert.AreEqual("Exception of type 'System.Exception' was thrown.", result.Details[0].Exception.Message);
         }
 
         public void testResultDetailsTwoResults()
@@ -75,12 +75,12 @@ namespace linxUnitTests
             Assert.IsFalse(result.Details[0].Inconclusive);
             Assert.IsTrue(result.Details[0].Success);
             Assert.AreEqual("testMethod", result.Details[0].Name);
-            Assert.IsNull(result.Details[0].failure);
+            Assert.IsNull(result.Details[0].Exception);
 
             Assert.IsFalse(result.Details[1].Inconclusive);
             Assert.IsFalse(result.Details[1].Success);
             Assert.AreEqual("testBrokenMethod", result.Details[1].Name);
-            Assert.IsNotNull(result.Details[1].failure);
+            Assert.IsNotNull(result.Details[1].Exception);
         }
 
         public void testResultDetailsAfterRun()
@@ -97,19 +97,19 @@ namespace linxUnitTests
             Assert.IsTrue(result.Details[0].Success);
             Assert.AreEqual("testMethodSuccessful", result.Details[0].Name);
             Assert.AreEqual("testMethodSuccessful succeeded", result.Details[0].Message);
-            Assert.IsNull(result.Details[0].failure);
+            Assert.IsNull(result.Details[0].Exception);
 
             Assert.IsFalse(result.Details[1].Inconclusive);
             Assert.IsFalse(result.Details[1].Success);
             Assert.AreEqual("testMethodFailed", result.Details[1].Name);
             Assert.AreEqual("testMethodFailed failed", result.Details[1].Message);
-            Assert.AreEqual("Test failed.", result.Details[1].failure.Exception.Message);
+            Assert.AreEqual("Test failed.", result.Details[1].Exception.Message);
 
             Assert.IsTrue(result.Details[2].Inconclusive);
             Assert.IsFalse(result.Details[2].Success);
             Assert.AreEqual("testMethodInconclusive", result.Details[2].Name);
             Assert.AreEqual("testMethodInconclusive inconclusive", result.Details[2].Message);
-            //Assert.AreEqual("Test was inconclusive.", result.details[2].failure.exception.Message);
+            //Assert.AreEqual("Test was inconclusive.", result.details[2].Exception.Message);
         }
     }
 }
