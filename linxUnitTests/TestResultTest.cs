@@ -121,11 +121,8 @@ namespace linxUnitTests
             suite.Run(result);
 
             Assert.AreEqual(3, result.Details.Count);
-
             Assert.AreEqual(TestResultState.Success, result.Details[0].State);
-
             Assert.AreEqual(TestResultState.Failure, result.Details[1].State);
-
             Assert.AreEqual(TestResultState.Inconclusive, result.Details[2].State);
         }
     }
