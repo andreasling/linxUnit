@@ -33,7 +33,7 @@ namespace linxUnit
 
             detail.Inconclusive = false;
             detail.Message = FormatDetailMessage(detail.Name, "failed");
-            detail.failure = new TestFailure() { Exception = exception };
+            detail.Exception = exception;
         }
 
         public void TestSucceeded()
@@ -51,7 +51,7 @@ namespace linxUnit
 
         private int errorCount()
         {
-            return Details.Count(d => d.failure != null);
+            return Details.Count(d => d.Exception != null);
         }
 
         private int runCount()
