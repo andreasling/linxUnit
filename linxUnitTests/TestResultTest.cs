@@ -29,6 +29,22 @@ namespace linxUnitTests
             Assert.IsNull(result.Details[0].Exception);
         }
 
+        public void testResultDetailsSuccessfulExpectedException()
+        {
+            var result = new TestResult();
+
+            result.TestStarted("testMethod");
+            result.TestSucceeded(new Exception("Expected exception"));
+
+            Assert.AreEqual(1, result.Details.Count);
+
+            Assert.IsFalse(result.Details[0].Inconclusive);
+            Assert.IsTrue(result.Details[0].Success);
+            Assert.AreEqual("testMethod", result.Details[0].Name);
+            Assert.AreEqual("testMethod succeeded", result.Details[0].Message);
+            Assert.IsNotNull(result.Details[0].Exception);
+        }
+
         public void testResultDetailsInconclusive()
         {
             var result = new TestResult();

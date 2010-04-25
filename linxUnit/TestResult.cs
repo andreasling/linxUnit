@@ -15,7 +15,7 @@ namespace linxUnit
             details = new List<TestResultDetails>();
         }
 
-        public void TestStarted(string name)
+        internal void TestStarted(string name)
         {
             var detail = new TestResultDetails() 
             { 
@@ -27,7 +27,7 @@ namespace linxUnit
             details.Add(detail);
         }
 
-        public void TestFailed(Exception exception)
+        internal void TestFailed(Exception exception)
         {
             var detail = details.Last();
 
@@ -36,12 +36,18 @@ namespace linxUnit
             detail.Exception = exception;
         }
 
-        public void TestSucceeded()
+        internal void TestSucceeded()
+        {
+            TestSucceeded(null);
+        }
+
+        internal void TestSucceeded(Exception expectedException)
         {
             var detail = details.Last();
 
             detail.State = TestResultState.Success;
             detail.Message = FormatDetailMessage(detail.Name, "succeeded");
+            detail.Exception = expectedException;
         }
 
         public string Summary()
