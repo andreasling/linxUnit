@@ -124,5 +124,30 @@ namespace linxUnitTests
             {
             }
         }
+
+        public void TestDefaultContructorNonExistingNameFailure()
+        {
+            try
+            {
+                var test = new OnlyDefaultContructorTest() { Name = "TestDoesNotExist" };
+
+                test.Run(result);
+
+                Assert.Fail();
+            }
+            catch (InvalidOperationException actual)
+            {
+            }
+        }
+
+        public void TestExpectedException()
+        {
+            var test = new ExpectedExceptionTestTest() { Name = "TestMethodFailure" };
+
+            test.Run(result);
+
+            Assert.IsTrue(result.Details[0].Success);
+            Assert.IsNotNull(result.Details[0].Exception);
+        }
     }
 }

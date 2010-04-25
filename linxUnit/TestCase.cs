@@ -27,11 +27,17 @@ namespace linxUnit
         public virtual void SetUp() { }
         public virtual void TearDown() { }
 
+        private Type expectedExceptionType;
+        protected void ExpectException<T>() where T : Exception
+        {
+            expectedExceptionType = typeof(T);
+        }
+
         public void Run(TestResult result)
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new InvalidOperationException("No test specified");
+                throw new InvalidOperationException("No test name specified");
             }
 
             result.TestStarted(name);
@@ -43,13 +49,24 @@ namespace linxUnit
 
                 result.TestSucceeded();
             }
+            catch (InvalidOperationException exception)
+            {
+                throw exception;
+            }
             catch (Exception exception)
             {
                 var innerException = exception.InnerException;
 
-                if (!(innerException is AssertInconclusiveException))
+                if (innerException != null)
                 {
-                    result.TestFailed(innerException);
+                    if (object.Equals(expectedExceptionType, innerException.GetType()))
+                    {
+                        result.TestSucceeded(innerException);
+                    }
+                    else if (!(innerException is AssertInconclusiveException))
+                    {
+                        result.TestFailed(innerException);
+                    }
                 }
             }
             finally
@@ -60,7 +77,16 @@ namespace linxUnit
 
         private void RunTestMethod()
         {
-            GetTestMethod().Invoke(this, null);
+            var method = GetTestMethod();
+            
+            if (method != null)
+	        {
+		        method.Invoke(this, null);
+	        }
+            else
+            {
+                throw new InvalidOperationException("Test name does not exists in test case");
+            }
         }
 
         private static BindingFlags testMethodbindingFlags = 
